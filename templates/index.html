@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h2 style="text-align: center;">Personagens do LoL</h2>
+<hr>
+<h3>Vamos aprender um pouco sobre os <b>PERSONAGENS</b> do nosso querido <b>Joguinho</b> </h3>
+{% for registro in registros %}
+<!-- <details>
+        <summary>{{registro.personagem}}</summary>
+        {{registro.lane}}
+    </details> -->
+<p>
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample_{{registro.personagem}}" role="button"
+        aria-expanded="false" aria-controls="collapseExample_{{registro.personagem}}">
+        {{registro.personagem}}
+    </a>
+</p>
+<div class="collapse" id="collapseExample_{{registro.personagem}}">
+    <div class="card card-body">
+        {{registro.lane}}
+    </div>
+</div>
+{% endfor %}
+
+<form action="{{url_for('principal')}}" method="post">
+    <div class="form-group">
+        <label for="exemplopersonagem">Personagem</label>
+        <input type="text" class="form-control" id="exemplopersonagem" name="personagem"
+            placeholder="Digite o nome do Personagem">
+    </div>
+    <div class="form-group">
+        <label for="exemplolane">Lane</label>
+        <input type="text" class="form-control" id="exemplolane" name="lane" placeholder="Digite a lane do Personagem">
+    </div>
+
+    <button class="btn btn-warning">Cadastrar</button>
+</form>
+{% endblock conteudo %}

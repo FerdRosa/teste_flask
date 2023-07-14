@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h2 style="text-align: center;"> Lista de Campeões do Lolzinho </h2>
+<hr>
+<a href="{{url_for('cria_personagem')}}" class="btn btn-secondary">Adicionar Personagem</a>
+<br> <br>
+<table class="table table-bordered table-hover table-striped">
+    <thead class="table-dark">
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for personagem in personagens %}
+
+            <tr>
+                <th scope="row">{{personagem.nome}}</th>
+                <td>{{personagem.descricao}}</td>
+                <td>{{personagem.tipo}}</td>
+                <td>{{personagem.valor}}</td>
+            </tr>
+        
+        {% endfor %}
+        
+    </tbody> 
+</table>
+{% endblock conteudo %}

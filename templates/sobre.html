@@ -1,0 +1,20 @@
+{% extends 'base.html' %}}
+{% block conteudo %}
+<h2 style="text-align: center;">Sobre o MicroGram</h2>
+<hr>
+<h3>Um grupo de amigos que se reuniu para criar a perfeição otimizada de um simples app chamado Instagram</h3>
+<hr>
+<ul type="circle" class="list-group">
+    {%for nome in nome%}
+    <li class="list-group-item">{{nome}}</li>
+    {% endfor %}
+    <form action="{{url_for('sobre')}}" method="post">
+        <div class="form-group">
+            <label for="exemploparticipante">Participante</label>
+            <input type="text" class="form-control" id="exemploparticipante" name="nome" required placeholder="Escreva um Participante">
+        </div>
+
+        <button class="btn btn-warning">Adicionar</button>
+    </form>
+</ul>
+{% endblock conteudo %}

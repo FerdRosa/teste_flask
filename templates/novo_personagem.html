@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h2 style="text-align: center;">Adicionar Novo Personagem</h2>
+<hr>
+{%- for message in get_flashed_messages()  %}
+    <div class="alert alert-danger">
+        {{message}}
+    </div>
+{%- endfor %}
+<form action="{{url_for('cria_personagem')}}" method="POST" class="form-control">
+
+    <label>Nome</label>
+    <input class="form-control" type="text" name="nome" placeholder="Nome do Personagem" >
+    <label>Descrição</label>
+    <input class="form-control" type="text" name="descricao" placeholder="Descrição do Personagem" >
+    <label>Tipo</label>
+    <input class="form-control" type="text" name="tipo" placeholder="Tipo do Personagem" >
+    <label>Valor</label>
+    <input class="form-control" type="number" name="valor" placeholder="Valor do Personagem" >
+    <br>
+    <button class="btn btn-success">Adicionar</button>
+
+</form>
+{% endblock conteudo %}
